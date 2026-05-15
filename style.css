@@ -177,4 +177,24 @@ footer a {
   width: min(560px, 82vw);
   max-width: 100%;
   height: auto;
+  
+}
+.hero-logo {
+  margin: 0 0 1.5rem;
+  line-height: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.hero-logo img {
+  display: block;
+  width: min(560px, 82vw);
+  max-width: 100%;
+  height: auto;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
 }
