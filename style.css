@@ -23,7 +23,6 @@ body {
 img {
   width: 100%;
   display: block;
-  border: 1px solid var(--gray-2);
 }
 
 .hero {
@@ -46,6 +45,27 @@ h1 {
   font-weight: 500;
 }
 
+.hero-logo {
+  margin: 0.4rem 0 1.5rem;
+  line-height: 0;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.hero-logo img {
+  display: block;
+  width: min(560px, 82vw);
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 0;
+}
+
 .tagline {
   margin: 0.8rem 0 0;
   color: var(--gray-3);
@@ -62,6 +82,11 @@ main {
   box-shadow: var(--shadow);
   padding: 1.1rem;
   margin-bottom: 1rem;
+}
+
+.artist-image img,
+.release-card img {
+  border: 1px solid var(--gray-2);
 }
 
 h2 {
@@ -97,6 +122,16 @@ li {
   border: 1px solid #4a4f56;
   color: var(--white-soft);
   text-decoration: none;
+}
+
+.button-disabled {
+  opacity: 0.72;
+  border-style: dashed;
+  cursor: not-allowed;
+}
+
+.button.inline {
+  margin-top: 0;
 }
 
 .link-list {
@@ -154,54 +189,4 @@ footer a {
   .release-grid {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-
-.button-disabled {
-  opacity: 0.72;
-  border-style: dashed;
-  cursor: not-allowed;
-}
-
-.button.inline {
-  margin-top: 0;
-}
-
-.hero-logo {
-  margin: 0 0 1.5rem;
-  line-height: 0;
-}
-
-.hero-logo img {
-  display: block;
-  width: min(560px, 82vw);
-  max-width: 100%;
-  height: auto;
-  
-}
-.hero-logo {
-  margin: 0 0 1.5rem;
-  line-height: 0;
-  border: none;
-  outline: none;
-  background: transparent;
-}
-
-.hero-logo img {
-  display: block;
-  width: min(560px, 82vw);
-  max-width: 100%;
-  height: auto;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-}
-
-.hero h1,
-.hero-logo {
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
 }
