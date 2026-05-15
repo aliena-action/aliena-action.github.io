@@ -166,3 +166,15 @@ footer a {
 .button.inline {
   margin-top: 0;
 }
+
+.hero-logo {
+  margin: 0 0 1.5rem;
+  line-height: 0;
+}
+
+.hero-logo img {
+  display: block;
+  width: min(560px, 82vw);
+  max-width: 100%;
+  height: auto;
+}
