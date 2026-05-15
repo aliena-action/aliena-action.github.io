@@ -198,3 +198,10 @@ footer a {
   background: transparent !important;
   padding: 0 !important;
 }
+
+.hero h1,
+.hero-logo {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
