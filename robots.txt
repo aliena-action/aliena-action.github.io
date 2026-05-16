@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aliena-action.github.io/aliena-profile-site/sitemap.xml
