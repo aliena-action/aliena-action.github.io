@@ -27,6 +27,8 @@
     />
     <meta name="twitter:image" content="https://aliena-action.github.io/assets/og-image.jpg" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' fill='black'/%3E%3Cpath fill='white' d='M257 84h69l137 344h-71l-29-76H221l-29 76h-71L257 84Zm83 207-48-127-48 127h96Z'/%3E%3Cpath fill='black' d='M282 163h22l-86 264h-56l120-264Z' opacity='.95'/%3E%3Cpath fill='white' d='M64 428 207 84h62L126 428H64Z'/%3E%3C/svg%3E" />
+    <link rel="preload" as="image" href="assets/aliena-logo.png" />
+    <link rel="preload" as="image" href="assets/profile-web.jpg" />
     <link rel="stylesheet" href="style.css" />
     <script type="application/ld+json">
       {
@@ -47,14 +49,14 @@
   <body>
     <header class="hero" id="top">
       <h1 class="hero-logo">
-        <img src="assets/aliena-logo.png" alt="ALIENA" />
+        <img src="assets/aliena-logo.png" alt="ALIENA" fetchpriority="high" decoding="async" />
       </h1>
       <p class="tagline">resonance / shadow / body</p>
     </header>
 
     <main>
       <section class="section artist-image">
-        <img src="assets/profile.png" alt="Portrait image of ALIENA" />
+        <img src="assets/profile-web.jpg" alt="Portrait image of ALIENA" fetchpriority="high" decoding="async" />
       </section>
 
       <section class="section" id="profile-ja">
@@ -111,14 +113,14 @@
         <h2>Releases</h2>
         <div class="release-grid">
           <article class="release-card">
-            <img src="assets/lead-single-cover.png" alt="Cover artwork placeholder for ALIENA lead single" />
+            <img src="assets/lead-single-cover-web.jpg" alt="Cover artwork placeholder for ALIENA lead single" loading="lazy" decoding="async" />
             <h3>Lead Single</h3>
             <p class="release-date">Launch: 2026.06.12</p>
             <span class="button button-disabled" aria-disabled="true">Streaming links coming soon</span>
           </article>
 
           <article class="release-card">
-            <img src="assets/ep-cover.png" alt="Cover artwork placeholder for ALIENA EP" />
+            <img src="assets/ep-cover-web.jpg" alt="Cover artwork placeholder for ALIENA EP" loading="lazy" decoding="async" />
             <h3>EP</h3>
             <p class="release-date">Launch: 2026.07.03</p>
             <span class="button button-disabled" aria-disabled="true">Streaming links coming soon</span>
