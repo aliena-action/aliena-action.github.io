@@ -6,6 +6,7 @@
   --gray-3: #aaa6a0;
   --greige: #d8d0c8;
   --greige-soft: #ede8e2;
+  --accent-red: #b1121b;
   --frame: rgba(216, 208, 200, 0.24);
   --frame-strong: rgba(216, 208, 200, 0.34);
   --white-soft: #ede8e2;
@@ -27,6 +28,11 @@ body {
   background: linear-gradient(180deg, var(--black-2), var(--black-1));
   color: var(--white-soft);
   line-height: 1.7;
+}
+
+::selection {
+  background: rgba(177, 18, 27, 0.72);
+  color: #fff;
 }
 
 img {
@@ -174,11 +180,23 @@ a {
   color: var(--white-soft);
   text-decoration: none;
   border-bottom: 1px solid var(--frame-strong);
+  -webkit-tap-highlight-color: rgba(177, 18, 27, 0.25);
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
 }
 
 a:hover,
-a:focus-visible {
-  border-bottom-color: var(--greige-soft);
+a:focus-visible,
+a:active {
+  color: var(--accent-red);
+  border-bottom-color: var(--accent-red);
+}
+
+.button:hover,
+.button:focus-visible,
+.button:active {
+  color: var(--white-soft);
+  border-color: var(--accent-red);
+  background: rgba(177, 18, 27, 0.08);
 }
 
 footer {
