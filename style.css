@@ -130,15 +130,16 @@ li {
   margin-bottom: 0;
 }
 
-#releases {
+#video {
   background: transparent;
   border: 0;
   box-shadow: none;
   padding: 0;
-  margin-top: 3rem;
-  margin-bottom: 1.6rem;
+  margin-top: 2.4rem;
+  margin-bottom: 2.2rem;
 }
 
+#video h2,
 #releases h2 {
   display: flex;
   align-items: center;
@@ -152,11 +153,39 @@ li {
   text-transform: uppercase;
 }
 
+#video h2::after,
 #releases h2::after {
   content: "";
   flex: 1;
   height: 1px;
   background: var(--frame);
+}
+
+.video-frame {
+  width: min(100%, 28rem);
+  margin: 0 auto;
+  background: linear-gradient(160deg, rgba(216, 208, 200, 0.035), rgba(18, 25, 40, 0.70) 28%, rgba(7, 10, 19, 0.94));
+  border: 1px solid var(--frame);
+  box-shadow: var(--shadow);
+  padding: 0.7rem;
+}
+
+.video-frame video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #000;
+  border: 1px solid var(--frame-strong);
+}
+
+#releases {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 1.6rem;
 }
 
 .release-grid {
@@ -307,11 +336,17 @@ footer a {
     line-height: 1.8;
   }
 
+  #video {
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
   #releases {
     margin-top: 3.6rem;
     margin-bottom: 1.9rem;
   }
 
+  #video h2,
   #releases h2 {
     margin-bottom: 1.55rem;
   }
