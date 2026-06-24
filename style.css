@@ -130,6 +130,7 @@ li {
   margin-bottom: 0;
 }
 
+#a-room-after-the-grid,
 #video {
   background: transparent;
   border: 0;
@@ -139,6 +140,7 @@ li {
   margin-bottom: 1.2rem;
 }
 
+#a-room-after-the-grid h2,
 #video h2,
 #releases h2 {
   display: flex;
@@ -153,12 +155,39 @@ li {
   text-transform: uppercase;
 }
 
+#a-room-after-the-grid h2::after,
 #video h2::after,
 #releases h2::after {
   content: "";
   flex: 1;
   height: 1px;
   background: var(--frame);
+}
+
+.ep-key-visual {
+  margin: 0;
+  background: #000;
+  border: 1px solid var(--frame-strong);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.ep-key-visual img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.ep-feature-copy {
+  padding-top: 1rem;
+}
+
+.ep-feature-copy h3 {
+  margin: 0;
+  color: var(--white-soft);
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .video-frame {
@@ -336,6 +365,7 @@ footer a {
     line-height: 1.8;
   }
 
+  #a-room-after-the-grid,
   #video {
     margin-top: 2.5rem;
     margin-bottom: 1.5rem;
@@ -346,9 +376,14 @@ footer a {
     margin-bottom: 1.9rem;
   }
 
+  #a-room-after-the-grid h2,
   #video h2,
   #releases h2 {
     margin-bottom: 1.35rem;
+  }
+
+  .ep-feature-copy {
+    padding-top: 1.25rem;
   }
 
   .release-grid {
