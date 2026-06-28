@@ -40,6 +40,82 @@ img {
   display: block;
 }
 
+.site-menu {
+  position: fixed;
+  top: 0.95rem;
+  right: 0.95rem;
+  z-index: 30;
+}
+
+.menu-toggle {
+  display: flex;
+  width: 2.8rem;
+  height: 2.8rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.34rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(5, 8, 18, 0.12);
+  color: var(--white-soft);
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(177, 18, 27, 0.25);
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible,
+.menu-toggle[aria-expanded="true"] {
+  background: rgba(5, 8, 18, 0.55);
+  outline: 1px solid rgba(216, 208, 200, 0.22);
+}
+
+.menu-line {
+  display: block;
+  width: 1.42rem;
+  height: 1px;
+  background: rgba(237, 232, 226, 0.78);
+}
+
+.menu-panel {
+  position: absolute;
+  top: 3.2rem;
+  right: 0;
+  min-width: 11.4rem;
+  padding: 0.72rem 0.78rem;
+  background: rgba(5, 8, 18, 0.82);
+  border: 1px solid rgba(216, 208, 200, 0.22);
+  box-shadow: 0 14px 34px rgba(0, 0, 18, 0.42);
+  backdrop-filter: blur(10px);
+}
+
+.menu-panel[hidden] {
+  display: none;
+}
+
+.menu-panel a {
+  display: block;
+  padding: 0.54rem 0.18rem;
+  border-bottom: 1px solid rgba(216, 208, 200, 0.16);
+  color: rgba(237, 232, 226, 0.76);
+  font-size: 0.72rem;
+  line-height: 1.25;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.menu-panel a:last-child {
+  border-bottom: 0;
+}
+
+.menu-panel a:hover,
+.menu-panel a:focus-visible,
+.menu-panel a:active {
+  color: var(--white-soft);
+  border-bottom-color: rgba(177, 18, 27, 0.72);
+}
+
 .hero {
   padding: 4.75rem 1rem 2.9rem;
   border-bottom: 1px solid var(--frame);
@@ -331,6 +407,11 @@ footer a {
 }
 
 @media (min-width: 760px) {
+  .site-menu {
+    top: 1.2rem;
+    right: max(1.2rem, calc((100vw - 60rem) / 2 + 1.5rem));
+  }
+
   .hero,
   main,
   footer {
