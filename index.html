@@ -57,6 +57,20 @@
     </script>
   </head>
   <body>
+    <nav class="site-menu" aria-label="Section navigation">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu-panel" aria-label="Open navigation menu">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+      <div class="menu-panel" id="site-menu-panel" hidden>
+        <a href="#profile-ja">Profile</a>
+        <a href="#video">Video</a>
+        <a href="#releases">Releases</a>
+        <a href="#links">Links / Contact</a>
+      </div>
+    </nav>
+
     <header class="hero" id="top">
       <h1 class="hero-logo">
         <img src="assets/aliena-logo.png" alt="ALIENA" fetchpriority="high" decoding="async" />
@@ -172,5 +186,39 @@
   <p>© 2026 ALIENA</p>
   <a href="#top">Back to top</a>
 </footer>
+    <script>
+      const siteMenu = document.querySelector('.site-menu');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const menuPanel = document.querySelector('#site-menu-panel');
+
+      if (siteMenu && menuToggle && menuPanel) {
+        const closeMenu = () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuPanel.hidden = true;
+        };
+
+        menuToggle.addEventListener('click', () => {
+          const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', String(!isOpen));
+          menuPanel.hidden = isOpen;
+        });
+
+        menuPanel.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', (event) => {
+          if (!siteMenu.contains(event.target)) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeMenu();
+          }
+        });
+      }
+    </script>
   </body>
 </html>
