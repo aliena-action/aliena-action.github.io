@@ -1,0 +1,89 @@
+name: Diagnose and enforce Pages HTTPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  diagnose-and-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Diagnose and enable HTTPS enforcement
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -u
+          API="https://api.github.com/repos/${REPO}/pages"
+          HEADER_ACCEPT="Accept: application/vnd.github+json"
+          HEADER_AUTH="Authorization: Bearer ${GH_TOKEN}"
+          HEADER_VERSION="X-GitHub-Api-Version: 2022-11-28"
+
+          curl -sS \
+            -H "$HEADER_ACCEPT" \
+            -H "$HEADER_AUTH" \
+            -H "$HEADER_VERSION" \
+            "$API" > /tmp/pages-before.json
+
+          UPDATE_CODE=$(curl -sS \
+            -o /tmp/pages-update.json \
+            -w "%{http_code}" \
+            -X PUT \
+            -H "$HEADER_ACCEPT" \
+            -H "$HEADER_AUTH" \
+            -H "$HEADER_VERSION" \
+            -H "Content-Type: application/json" \
+            "$API" \
+            -d '{"https_enforced":true}')
+
+          curl -sS \
+            -H "$HEADER_ACCEPT" \
+            -H "$HEADER_AUTH" \
+            -H "$HEADER_VERSION" \
+            "$API" > /tmp/pages-after.json
+
+          UPDATE_CODE="$UPDATE_CODE" python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          def read_json_or_text(path):
+              text = Path(path).read_text(encoding="utf-8", errors="replace")
+              try:
+                  return json.loads(text)
+              except Exception:
+                  return {"raw": text}
+
+          result = {
+              "update_http_status": os.environ.get("UPDATE_CODE"),
+              "before": read_json_or_text("/tmp/pages-before.json"),
+              "update_response": read_json_or_text("/tmp/pages-update.json"),
+              "after": read_json_or_text("/tmp/pages-after.json"),
+          }
+          Path("pages-https-diagnostic.json").write_text(
+              json.dumps(result, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8",
+          )
+          PY
+
+      - name: Save diagnostic result
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages-https-diagnostic.json
+          if git diff --cached --quiet; then
+            echo "No diagnostic change to commit"
+          else
+            git commit -m "Record Pages HTTPS diagnostic"
+            git push
+          fi
