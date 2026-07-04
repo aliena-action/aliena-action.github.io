@@ -34,6 +34,12 @@ jobs:
             -H "$HEADER_VERSION" \
             "$API" > /tmp/pages-before.json
 
+          curl -sS \
+            -H "$HEADER_ACCEPT" \
+            -H "$HEADER_AUTH" \
+            -H "$HEADER_VERSION" \
+            "${API}/builds/latest" > /tmp/pages-latest-build.json
+
           UPDATE_CODE=$(curl -sS \
             -o /tmp/pages-update.json \
             -w "%{http_code}" \
@@ -66,6 +72,7 @@ jobs:
           result = {
               "update_http_status": os.environ.get("UPDATE_CODE"),
               "before": read_json_or_text("/tmp/pages-before.json"),
+              "latest_build": read_json_or_text("/tmp/pages-latest-build.json"),
               "update_response": read_json_or_text("/tmp/pages-update.json"),
               "after": read_json_or_text("/tmp/pages-after.json"),
           }
