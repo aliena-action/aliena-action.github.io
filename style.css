@@ -195,10 +195,18 @@ h2 {
 }
 
 p,
-li {
+li,
+.review-quote {
   color: rgba(237, 232, 226, 0.72);
   font-size: 0.96rem;
   line-height: 1.85;
+}
+
+.review-quote {
+  margin: 1rem 0 0.65rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--frame-strong);
+  font-style: italic;
 }
 
 .section p:last-child,
@@ -441,7 +449,8 @@ footer a {
   }
 
   p,
-  li {
+  li,
+  .review-quote {
     font-size: 1rem;
     line-height: 1.8;
   }
