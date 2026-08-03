@@ -360,6 +360,22 @@ li,
   text-decoration: none;
 }
 
+.button-primary {
+  border-color: rgba(237, 232, 226, 0.58);
+  background: rgba(237, 232, 226, 0.06);
+}
+
+.press-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.press-actions .button {
+  margin-top: 0;
+}
+
 .button-disabled {
   opacity: 0.72;
   border-style: dashed;
@@ -412,6 +428,112 @@ footer {
 footer a {
   display: inline-block;
   margin-top: 0.55rem;
+}
+
+.review-page-header,
+.review-page-main,
+.review-page-footer {
+  width: min(100%, 46rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.review-page-header {
+  padding: 2.4rem 1.25rem 2.2rem;
+  border-bottom: 1px solid var(--frame);
+}
+
+.review-page-brand {
+  display: inline-block;
+  border-bottom: 0;
+}
+
+.review-page-brand img {
+  width: min(13rem, 58vw);
+  height: auto;
+}
+
+.review-page-heading {
+  margin-top: 4.4rem;
+}
+
+.review-page-heading h1 {
+  margin: 0;
+  color: var(--white-soft);
+  font-size: clamp(2rem, 9vw, 3.35rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+.review-page-work {
+  margin: 1.15rem 0 0;
+  color: rgba(237, 232, 226, 0.84);
+  font-size: clamp(1rem, 4.8vw, 1.28rem);
+  line-height: 1.55;
+}
+
+.review-page-byline,
+.review-page-language {
+  margin: 0.45rem 0 0;
+  color: var(--gray-3);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  letter-spacing: 0.12em;
+}
+
+.review-page-language {
+  letter-spacing: 0.2em;
+}
+
+.review-page-main {
+  padding: 3rem 1.25rem 3.6rem;
+}
+
+.review-page-scope {
+  margin: 0 0 2.5rem;
+  padding: 0 0 0 1rem;
+  border-left: 1px solid var(--frame-strong);
+  color: var(--gray-3);
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+.review-page-body {
+  max-width: 37rem;
+}
+
+.review-page-body p {
+  margin: 0;
+  color: rgba(237, 232, 226, 0.82);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  font-size: clamp(1rem, 4.15vw, 1.08rem);
+  line-height: 2.15;
+  letter-spacing: 0.035em;
+}
+
+.review-page-body p + p {
+  margin-top: 1.75rem;
+}
+
+.review-page-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.35rem;
+  margin-top: 4rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--frame);
+}
+
+.review-page-links a {
+  color: var(--gray-3);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.review-page-footer {
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
 }
 
 @media (min-width: 760px) {
@@ -490,5 +612,35 @@ footer a {
 
   footer {
     padding: 2rem 1.5rem 2.8rem;
+  }
+
+  .review-page-header {
+    padding: 3.1rem 2rem 2.8rem;
+  }
+
+  .review-page-heading {
+    margin-top: 5.5rem;
+  }
+
+  .review-page-main {
+    padding: 4rem 2rem 5rem;
+  }
+
+  .review-page-scope {
+    margin-bottom: 3.25rem;
+  }
+
+  .review-page-body p {
+    font-size: 1.08rem;
+    line-height: 2.25;
+  }
+
+  .review-page-body p + p {
+    margin-top: 2rem;
+  }
+
+  .review-page-footer {
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
